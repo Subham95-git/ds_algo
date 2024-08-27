@@ -7,5 +7,6 @@ public class Main {
         myLinkedList.printLinkedList();
         myLinkedList.prepend(2);
         myLinkedList.printLinkedList();
+        System.out.println(myLinkedList.get(1).value);
     }
 }

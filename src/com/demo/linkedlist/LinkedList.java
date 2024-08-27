@@ -37,10 +37,10 @@ public class LinkedList {
         System.out.println("LENGTH: " + length);
     }
 
-    /*adds new node*/
+    /*adds new node at the end*/
     public void append(int val){
         Node newNode = new Node(val);
-        if(length == 0){
+        if(length == 0){   //Edge case: when there is no node in linked list
             head = newNode;
         } else {
             tail.next = newNode;
@@ -49,7 +49,20 @@ public class LinkedList {
         length ++;
     }
 
-    /*Removes last elements*/
+    /*adds new node at the end*/
+    public void prepend(int value){
+        Node newNode = new Node(value);
+        if(length == 0){  //Edge case: when there is no node in linked list
+            head = newNode;
+            tail = newNode;
+        } else {
+            newNode.next = head;
+            head = newNode;
+        }
+        length++;
+    }
+
+    /*Removes last node*/
     public Node removeLast(){
         if(length == 0) return null; //edge case: while there is no node
         Node temp = head;
@@ -68,15 +81,12 @@ public class LinkedList {
         return temp;
     }
 
-    public void prepend(int value){
-        Node newNode = new Node(value);
-        if(length == 0){
-            head = newNode;
-            tail = newNode;
-        } else {
-            newNode.next = head;
-            head = newNode;
+    public Node get(int index){
+        if(index<0 || index>=length) return null; //edge case: wrong index
+        Node temp = head;
+        for(int i=0; i<index; i++){
+            temp = temp.next;
         }
-        length++;
+        return temp;
     }
 }
