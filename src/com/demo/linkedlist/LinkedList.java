@@ -113,4 +113,51 @@ public class LinkedList {
         }
         return false;
     }
+
+    /*Insert a node at a given index*/
+    public boolean insert(int index, int value){
+        if(index< 0 || index>= length) return false;
+        if(index == 0){
+            prepend(value);
+            return true;
+        }
+        if(index == length){
+            append(value);
+            return true;
+        }
+        Node newNode = new Node(value);
+        Node temp = get(index - 1);
+        newNode.next = temp.next;
+        temp.next = newNode;
+        length++;
+        return true;
+    }
+
+    /*Remove a node from a given index*/
+    public Node remove(int index){
+        if(index< 0 || index>= length) return null;
+        if(index == 0) return removeFirst();
+        if(index == length) return removeLast();
+        Node prev = get(index - 1);
+        Node temp = prev.next;
+        prev.next = temp.next;
+        temp.next = null;
+        length--;
+        return temp;
+    }
+
+    /*Reverse a linked list*/
+    public void reverse(){
+        Node temp = head;
+        head = tail;
+        tail = temp;
+        Node before = null;
+        Node after = null;
+        for(int i=0; i<length; i++){
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
+    }
 }
