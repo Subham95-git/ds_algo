@@ -14,10 +14,10 @@ public class LinkedList {
     }
 
     /*Prints the linked list*/
-    public void printLinkedList() {
+    public void printLinkedList(){
         Node temp = head;
         String result = "";
-        while (temp != null) {
+        while (temp != null){
             result = result.concat("(" + temp.value + ") --> ");
             temp = temp.next;
         }
@@ -25,34 +25,34 @@ public class LinkedList {
         System.out.println(result);
     }
 
-    public void getHead() {
+    public void getHead(){
         System.out.println("HEAD: " + head.value);
     }
 
-    public void getTail() {
+    public void getTail(){
         System.out.println("TAIL: " + tail.value);
     }
 
-    public void getLength() {
+    public void getLength(){
         System.out.println("LENGTH: " + length);
     }
 
     /*adds new node at the end*/
-    public void append(int val) {
+    public void append(int val){
         Node newNode = new Node(val);
-        if (length == 0) {   //Edge case: when there is no node in linked list
+        if(length == 0){   //Edge case: when there is no node in linked list
             head = newNode;
         } else {
             tail.next = newNode;
         }
         tail = newNode;
-        length++;
+        length ++;
     }
 
     /*adds new node at the end*/
-    public void prepend(int value) {
+    public void prepend(int value){
         Node newNode = new Node(value);
-        if (length == 0) {  //Edge case: when there is no node in linked list
+        if(length == 0){  //Edge case: when there is no node in linked list
             head = newNode;
             tail = newNode;
         } else {
@@ -63,20 +63,20 @@ public class LinkedList {
     }
 
     /*Removes last node*/
-    public Node removeLast() {
-        if (length == 0) return null; //edge case: while there is no node
+    public Node removeLast(){
+        if(length == 0) return null; //edge case: while there is no node
         Node temp = head;
         Node pre = head;
-        while (temp.next != null) {
+        while (temp.next != null){
             pre = temp;
             temp = temp.next;
         }
         tail = pre;
         tail.next = null;
         length--;
-        if (length == 0) {  // edge case while there is only one node
+        if(length == 0){  // edge case while there is only one node
             head = null;
-            tail = null;
+            tail=null;
         }
         return temp;
     }
@@ -98,7 +98,7 @@ public class LinkedList {
     public Node get(int index) {
         if (index < 0 || index >= length) return null; //edge case: wrong index
         Node temp = head;
-        for (int i = 0; i < index; i++) {
+        for(int i=0; i<index; i++){
             temp = temp.next;
         }
         return temp;
