@@ -1,11 +1,11 @@
 package com.demo.array.LargestElementInAnArray;
 
-public class Demo {
+public class IterativeSolution {
     public static int findLargest(int[] arr){
         if(arr.length == 0)
             return -1;
         int largestElement = arr[0];
-        for(int i=0; i<arr.length; i++){
+        for(int i=1; i<arr.length; i++){
             if(arr[i]>largestElement)
                 largestElement = arr[i];
         }
@@ -21,3 +21,4 @@ public class Demo {
             System.out.println("The largest element: " + largestElement);
     }
 }
+//Iterative Approach – O(n) Time and O(1) Space
