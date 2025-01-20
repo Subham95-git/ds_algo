@@ -22,4 +22,6 @@ public class BetterSolution {
         }
     }
 }
+
+
 //O(n) Time and O(1) Space
