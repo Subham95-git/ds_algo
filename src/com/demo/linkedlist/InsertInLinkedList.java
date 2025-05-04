@@ -2,7 +2,7 @@ package com.demo.linkedlist;
 
 public class InsertInLinkedList {
 
-    public static Node insertAtTheBeginning(Node node, int value){
+    public static Node insertAtTheBeginning(Node node, int value) {
         Node head = node;
         Node newNode = new Node(value);
         newNode.next = head;
@@ -10,13 +10,57 @@ public class InsertInLinkedList {
         return head;
     }
 
-    public static Node insertAtTheEnd(Node node, int value){
-        Node head = node;
+    public static Node insertAtTheEnd(Node head, int value) {
         Node newNode = new Node(value);
         Node currentNode = head;
-        while (currentNode.next != null){
+        while (currentNode.next != null) {
             currentNode = currentNode.next;
         }
+        currentNode.next = newNode;
+        return head;
+    }
+
+    public static Node insertAfterAGivenNode(Node head, int value, int insertAfter) {
+        Node currentNode = head;
+        while (currentNode != null) {
+            if (currentNode.value == insertAfter)
+                break;
+            currentNode = currentNode.next;
+        }
+        Node newNode = new Node(value);
+        newNode.next = currentNode.next;
+        currentNode.next = newNode;
+        return head;
+    }
+
+    public static Node insertBeforeAGivenNode(Node head, int value, int insertAfter) {
+        Node currentNode = head;
+        while (currentNode.next != null) {
+            if (currentNode.next.value == insertAfter)
+                break;
+            currentNode = currentNode.next;
+        }
+        Node newNode = new Node(value);
+        newNode.next = currentNode.next;
+        currentNode.next = newNode;
+        return head;
+    }
+
+    public static Node insertAfterAGivenPosition(Node head, int position, int value) {
+        if (position < 1)
+            return head;
+
+        if (position == 1) {
+            Node newNode = new Node(value);
+            newNode.next = head;
+            return newNode;
+        }
+        Node currentNode = head;
+        for (int i=1;i<position-1;i++){
+            currentNode = currentNode.next;
+        }
+        Node newNode =  new Node(value);
+        newNode.next = currentNode.next;
         currentNode.next = newNode;
         return head;
     }
@@ -40,5 +84,16 @@ public class InsertInLinkedList {
         head = insertAtTheEnd(head, 10);
         Util.printLinkedList(head);
 
+        System.out.println("After inserting after a given Node");
+        head = insertAfterAGivenNode(head, 99, 3);
+        Util.printLinkedList(head);
+
+        System.out.println("After inserting before a given Node");
+        head = insertBeforeAGivenNode(head, 99, 3);
+        Util.printLinkedList(head);
+
+        System.out.println("After inserting before a given position");
+        head = insertAfterAGivenPosition(head, 2, 101);
+        Util.printLinkedList(head);
     }
 }
