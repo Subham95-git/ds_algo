@@ -1,4 +1,4 @@
-package com.demo.linkedlist;
+package com.demo.linkedlist.singly;
 
 /**
  * Partitions a linked list around a value {@code x}, such that all nodes less than {@code x} come first,

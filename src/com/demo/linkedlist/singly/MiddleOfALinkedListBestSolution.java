@@ -1,4 +1,4 @@
-package com.demo.linkedlist;
+package com.demo.linkedlist.singly;
 
 /**
  * Given a singly linked list, the task is to find the middle of the linked list.

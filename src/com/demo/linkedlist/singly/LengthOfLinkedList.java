@@ -1,4 +1,4 @@
-package com.demo.linkedlist;
+package com.demo.linkedlist.singly;
 
 public class LengthOfLinkedList {
     public static int countOfLength(Node head){

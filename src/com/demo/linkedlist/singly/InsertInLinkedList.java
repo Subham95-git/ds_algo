@@ -1,4 +1,4 @@
-package com.demo.linkedlist;
+package com.demo.linkedlist.singly;
 
 public class InsertInLinkedList {
 

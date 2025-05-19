@@ -1,4 +1,4 @@
-package com.demo.linkedlist;
+package com.demo.linkedlist.singly;
 
 /**
  * Checks if the given singly linked list has a loop (cycle).

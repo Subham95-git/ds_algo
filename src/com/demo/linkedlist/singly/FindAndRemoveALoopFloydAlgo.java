@@ -1,27 +1,28 @@
-package com.demo.linkedlist;
+package com.demo.linkedlist.singly;
 
 
 /**
- * Finds the starting node of the loop in a singly linked list, if present.
+ * Removes the loop from the linked list, if present.
  *
  * <p>This method first detects if a loop exists in the linked list using Floyd’s Cycle-Finding Algorithm
- * (Tortoise and Hare approach). If a loop is detected, it then finds the starting node of the loop by
- * resetting one pointer to the head and moving both pointers one step at a time until they meet.
- * The meeting point is the starting node of the loop.</p>
- *
+ * (Tortoise and Hare approach). If a loop is detected, it finds the node just before the start of the loop
+ * and sets its next pointer to null, thereby removing the loop.</p>
  *
  * <pre>
  * Example 1:
  * Input: 1 -> 2 -> 3 -> 4 -> 5 -> 3 (cycle starts at node with value 3)
- * Output: 3
+ * Output: 1 -> 2 -> 3 -> 4 -> 5 -> null
  *
  * Example 2:
  * Input: 1 -> 2 -> 3 -> 4 -> null (no cycle)
- * Output: -1
+ * Output: 1 -> 2 -> 3 -> 4 -> null
  * </pre>
  */
-public class FindFirstNodeOfALoopFloydCycleFindAlgo {
-    private static Node getFirstNodeOfALoop(Node head) {
+public class FindAndRemoveALoopFloydAlgo {
+    public static void findAndDeleteLoop(Node head) {
+        if(head == null || head.next == null){
+            return;
+        }
         Node fast = head;
         Node slow = head;
         boolean isLoop = false;
@@ -36,13 +37,12 @@ public class FindFirstNodeOfALoopFloydCycleFindAlgo {
         }
         if (isLoop) {
             slow = head;
-            while (slow != fast) {
+            while (slow.next != fast.next) {
                 slow = slow.next;
                 fast = fast.next;
             }
-            return slow;
+            fast.next = null;
         }
-        return null;
     }
 
     public static void main(String[] args) {
@@ -55,11 +55,7 @@ public class FindFirstNodeOfALoopFloydCycleFindAlgo {
         // Create a loop
         head.next.next.next = head.next;
 
-        Node firstNodeOfLoop = getFirstNodeOfALoop(head);
-        if (firstNodeOfLoop != null) {
-            System.out.println(firstNodeOfLoop.value);
-        } else {
-            System.out.println("No loop");
-        }
+        findAndDeleteLoop(head);
+        Util.printLinkedList(head);
     }
 }

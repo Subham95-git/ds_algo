@@ -1,4 +1,4 @@
-package com.demo.linkedlist;
+package com.demo.linkedlist.singly;
 
 /**
  * Swaps the elements of a singly linked list pairwise.

@@ -1,4 +1,4 @@
-package com.demo.linkedlist;
+package com.demo.linkedlist.singly;
 
 public class NthNodeFromEndBetterSolution {
     public static int findNthNodeFromEnd(Node head, int N) {

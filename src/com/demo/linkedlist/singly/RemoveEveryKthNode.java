@@ -1,4 +1,4 @@
-package com.demo.linkedlist;
+package com.demo.linkedlist.singly;
 
 /**
  * <li>Given a singly linked list, the task is to remove every kth node of
