@@ -16,7 +16,7 @@ package com.demo.linkedlist;
  * Input: 5 -> 10 -> 10 -> 20
  * Output: 5 -> 10 -> 20
  */
-public class RemoveDuplicateFromLinkedList {
+public class RemoveDuplicateFromSortedLinkedList {
     private static Node removeDuplicate(Node head){
         Node currentNode = head;
         while (currentNode != null && currentNode.next != null){
